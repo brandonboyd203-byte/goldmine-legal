@@ -1,10 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8">
-<meta name="tiktok-developers-site-verification" content="JaCPG82JRljcTpIc32bRXA1X4Vx0H1ac">
-<title>Goldmine Agent</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="tiktok-developers-site-verification" content="JaCPG82JRljcTpIc32bRXA1X4Vx0H1ac">
+  <meta name="description" content="Goldmine Agent is the content workflow tool used by Goldmine Trading to create, review, upload, and publish educational trading videos through connected social accounts.">
+  <title>Goldmine Agent | Social Content Automation for Goldmine Trading</title>
+  <style>
+    :root { --bg: #050707; --panel: #101413; --gold: #f4c45d; --green: #39e49b; --text: #f5f5f1; --muted: #aeb6b0; --line: #26302c; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .ticker { display: flex; gap: 28px; overflow: hidden; white-space: nowrap; border-bottom: 1px solid rgba(244, 196, 93, 0.32); background: var(--gold); color: #080907; font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 8px 0; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(5, 7, 7, 0.9); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+    .nav { width: min(1120px, calc(100% - 32px)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .mark { width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, var(--gold), #fff4c6); color: #090a08; display: grid; place-items: center; font-weight: 950; }
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #090a08; font-size: 14px; font-weight: 900; box-shadow: 0 12px 32px rgba(244, 196, 93, 0.2); }
+    .button.secondary { background: transparent; color: var(--text); border: 1px solid var(--line); box-shadow: none; }
+    section { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 88px 0; }
+    .hero { min-height: calc(100vh - 112px); display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(320px, .94fr); align-items: center; gap: 56px; padding-top: 64px; padding-bottom: 72px; }
+    .eyebrow { display: inline-flex; align-items: center; min-height: 28px; border-radius: 999px; border: 1px solid rgba(244, 196, 93, 0.35); background: rgba(244, 196, 93, 0.08); color: var(--gold); padding: 0 12px; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3 { margin: 0; line-height: 1.04; letter-spacing: 0; }
+    h1 { margin-top: 24px; font-size: clamp(44px, 8vw, 84px); max-width: 760px; }
+    h1 span { color: var(--gold); }
+    h2 { font-size: clamp(34px, 5vw, 58px); margin-top: 16px; }
+    .lead { max-width: 640px; color: var(--muted); font-size: 19px; margin: 24px 0 0; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 42px; max-width: 620px; }
+    .stat { border-top: 1px solid var(--line); padding-top: 16px; }
+    .stat strong { display: block; color: var(--gold); font-size: 26px; line-height: 1; }
+    .stat span { display: block; margin-top: 8px; color: var(--muted); font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .app-preview, .card, .wide-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+    .app-preview { overflow: hidden; box-shadow: 0 36px 90px rgba(0, 0, 0, 0.42); }
+    .preview-top { height: 42px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid var(--line); background: #0b0f0d; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); }
+    .preview-body { padding: 22px; }
+    .screen { background: #070909; border: 1px solid #202722; border-radius: 8px; padding: 18px; min-height: 420px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #1f2723; padding: 14px 0; }
+    .row:first-child { padding-top: 0; }
+    .pill { display: inline-flex; align-items: center; min-height: 26px; border-radius: 999px; padding: 0 10px; background: rgba(57, 228, 155, 0.12); color: var(--green); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .mock-title { color: var(--text); font-size: 14px; font-weight: 900; }
+    .mock-sub { color: var(--muted); font-size: 12px; }
+    .video-box { aspect-ratio: 9 / 16; width: min(230px, 62%); margin: 24px auto; border-radius: 8px; border: 1px solid rgba(244, 196, 93, 0.36); background: linear-gradient(rgba(5, 7, 7, 0.2), rgba(5, 7, 7, 0.85)), repeating-linear-gradient(0deg, #14201b, #14201b 18px, #101713 18px, #101713 36px); display: grid; place-items: center; text-align: center; padding: 18px; color: var(--text); font-weight: 950; }
+    .progress { height: 9px; border-radius: 999px; background: #1a201d; overflow: hidden; margin-top: 18px; }
+    .progress span { display: block; width: 72%; height: 100%; background: linear-gradient(90deg, var(--gold), var(--green)); }
+    .section-head { max-width: 760px; margin-bottom: 34px; }
+    .section-copy { color: var(--muted); font-size: 17px; margin: 18px 0 0; max-width: 720px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card { padding: 24px; min-height: 232px; }
+    .card h3 { font-size: 22px; margin-top: 18px; }
+    .card p, .step p, .wide-card li, .notice { color: var(--muted); }
+    .icon { width: 42px; height: 42px; border-radius: 8px; background: rgba(244, 196, 93, 0.12); color: var(--gold); display: grid; place-items: center; font-weight: 950; font-size: 18px; }
+    .workflow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; counter-reset: step; }
+    .step { border-top: 1px solid var(--line); padding-top: 20px; counter-increment: step; }
+    .step:before { content: counter(step, decimal-leading-zero); color: var(--gold); font-size: 13px; font-weight: 950; letter-spacing: .12em; }
+    .step h3 { font-size: 19px; margin-top: 10px; }
+    .step p { margin: 8px 0 0; font-size: 14px; }
+    .integrations { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .wide-card { padding: 26px; }
+    .wide-card ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .wide-card li { border-top: 1px solid #222b27; padding-top: 12px; }
+    .wide-card strong, .notice strong { color: var(--text); }
+    .notice { border: 1px solid rgba(57, 228, 155, 0.26); background: rgba(57, 228, 155, 0.08); border-radius: 8px; padding: 24px; }
+    footer { border-top: 1px solid var(--line); padding: 34px 0; color: var(--muted); }
+    .footer-inner { width: min(1120px, calc(100% - 32px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; font-size: 13px; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 880px) { .hero, .integrations { grid-template-columns: 1fr; } .grid, .workflow { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } section { padding: 64px 0; } }
+    @media (max-width: 560px) { .stats, .grid, .workflow { grid-template-columns: 1fr; } .hero { min-height: auto; } }
+  </style>
 </head>
 <body>
-<p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  <div class="ticker" aria-hidden="true"><span>Goldmine Agent - TikTok Login Kit - Video Upload - Video Publish - Human Review Before Posting - Educational Trading Content -</span></div>
+  <header><nav class="nav" aria-label="Primary navigation"><a class="brand" href="#top" aria-label="Goldmine Agent home"><span class="mark">G</span><span>Goldmine Agent</span></a><div class="nav-links"><a href="#workflow">Workflow</a><a href="#tiktok">TikTok API</a><a href="#safety">Safety</a><a href="privacy.html">Privacy</a><a class="button" href="mailto:brandonboyd203@gmail.com">Contact</a></div></nav></header>
+  <main id="top">
+    <section class="hero">
+      <div><span class="eyebrow">Official Goldmine Agent Website</span><h1>Content automation for <span>Goldmine Trading</span>.</h1><p class="lead">Goldmine Agent helps the Goldmine Trading team prepare, review, upload, and publish educational trading videos to connected social accounts. TikTok is connected through Login Kit and the Content Posting API.</p><div class="actions"><a class="button" href="#workflow">View Workflow</a><a class="button secondary" href="#tiktok">TikTok Integration</a></div><div class="stats" aria-label="Goldmine Agent capabilities"><div class="stat"><strong>9:16</strong><span>Short-form video</span></div><div class="stat"><strong>OAuth</strong><span>User-authorized accounts</span></div><div class="stat"><strong>Review</strong><span>Approval before publish</span></div></div></div>
+      <div class="app-preview" aria-label="Goldmine Agent interface preview"><div class="preview-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="preview-body"><div class="screen"><div class="row"><div><div class="mock-title">TikTok connected</div><div class="mock-sub">Login Kit authorized by the account owner</div></div><span class="pill">Ready</span></div><div class="video-box">Educational trading video preview</div><div class="row"><div><div class="mock-title">Render approved content</div><div class="mock-sub">Brand-safe captions and visual checks</div></div><span class="pill">72%</span></div><div class="progress"><span></span></div><div class="row"><div><div class="mock-title">Upload or publish</div><div class="mock-sub">Uses TikTok video.upload or video.publish scopes</div></div><span class="pill">Manual</span></div></div></div></div>
+    </section>
+    <section id="workflow"><div class="section-head"><span class="eyebrow">How it works</span><h2>One controlled workflow from idea to post.</h2><p class="section-copy">Goldmine Agent is built for the Goldmine Trading education brand. It keeps the creator in control while removing repetitive rendering, upload, and publishing steps.</p></div><div class="workflow"><div class="step"><h3>Connect TikTok</h3><p>The user signs in with TikTok Login Kit and authorizes the requested account permissions.</p></div><div class="step"><h3>Create video</h3><p>The tool renders a 9:16 educational trading video from approved Goldmine content and brand assets.</p></div><div class="step"><h3>Review content</h3><p>The user checks the video, caption, and educational disclaimer before anything is uploaded.</p></div><div class="step"><h3>Upload or publish</h3><p>The approved video is sent to TikTok as a draft or published directly through the Content Posting API.</p></div></div></section>
+    <section><div class="section-head"><span class="eyebrow">Product areas</span><h2>Built for real content operations.</h2></div><div class="grid"><article class="card"><div class="icon">01</div><h3>Content planning</h3><p>Organizes approved educational trading topics, captions, and publishing notes for the Goldmine Trading brand.</p></article><article class="card"><div class="icon">02</div><h3>Video rendering</h3><p>Prepares short-form MP4 videos in the correct format for TikTok and other social platforms.</p></article><article class="card"><div class="icon">03</div><h3>Publishing control</h3><p>Uses connected social APIs only after the user authorizes the account and approves the final content.</p></article></div></section>
+    <section id="tiktok"><div class="section-head"><span class="eyebrow">TikTok integration</span><h2>Scopes used by Goldmine Agent.</h2><p class="section-copy">The TikTok permissions requested by this app are limited to account verification and video posting actions selected by the user.</p></div><div class="integrations"><article class="wide-card"><h3>Login Kit</h3><ul><li><strong>user.info.basic</strong> verifies the connected TikTok account after OAuth.</li><li><strong>Redirect URI</strong> returns users to the Goldmine Agent callback page after authorization.</li><li><strong>Account control</strong> stays with the user. The user can revoke access from TikTok settings.</li></ul></article><article class="wide-card"><h3>Content Posting API</h3><ul><li><strong>video.upload</strong> uploads approved MP4 content to TikTok as a creator draft.</li><li><strong>video.publish</strong> publishes a reviewed video when direct posting is selected.</li><li><strong>No scraping</strong> or unrelated TikTok data collection is performed by Goldmine Agent.</li></ul></article></div></section>
+    <section id="safety"><div class="section-head"><span class="eyebrow">Safety and compliance</span><h2>Human review stays in the loop.</h2></div><div class="notice"><p><strong>Goldmine Agent is not financial advice software.</strong> It is a content workflow tool for educational trading media. Videos are reviewed by the Goldmine Trading team before upload or publishing, and posted content must comply with TikTok policies, platform terms, and applicable financial promotion rules.</p><p>OAuth tokens are used only to complete the user-requested TikTok posting workflow. See the <a href="privacy.html"><strong>Privacy Policy</strong></a> and <a href="terms.html"><strong>Terms of Service</strong></a> for the full details.</p></div></section>
+  </main>
+  <footer><div class="footer-inner"><div>Goldmine Agent by Goldmine Trading. Educational content workflow software.</div><div class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="tiktok-callback.html">TikTok Callback</a><a href="mailto:brandonboyd203@gmail.com">Contact</a></div></div></footer>
 </body>
 </html>
